@@ -4,7 +4,7 @@ from numpy.linalg import norm
 import os
 import datetime
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 SZ=20
 def deskew(img):
     m = cv2.moments(img)
@@ -85,7 +85,7 @@ for cnt in range(len(file)):
     imgCanny=cv2.Canny(img.copy(),250,400)
     imgCanny=cv2.morphologyEx(imgCanny,cv2.MORPH_CLOSE,kernal,iterations=2)
 
-    # cv2.imshow('imgCanny',imgCanny)
+    cv2.imshow('imgCanny',img)
 
     #数字分割1
     y_his =np.sum(imgCanny,axis=0)/255
@@ -295,9 +295,9 @@ for cnt in range(len(file)):
 
             num_predict = num_predict * 10 + text2[0].astype(int)
     # print('cnt:{0}'.format(cnt))
-    # print('num_predict:{0}'.format(num_predict))
-    # if cv2.waitKey(1) == 27:
-    #     cv2.destroyAllWindows()
+    print('num_predict:{0}'.format(num_predict))
+    if cv2.waitKey(0) == 27:
+        cv2.destroyAllWindows()
     #     pass
 endtime=datetime.datetime.now()
 print('time:\n{0}.{1}'.format(( endtime-starttime).seconds,( endtime-starttime).microseconds ))

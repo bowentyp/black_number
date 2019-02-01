@@ -4,7 +4,7 @@ from numpy.linalg import norm
 import os
 import datetime
 
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 SZ=20
 def deskew(img):
     m = cv2.moments(img)
